@@ -380,6 +380,7 @@ class CaffeNet(nn.Module):
         self.phase = phase
         self.net_info = parse_prototxt(protofile)
         self.models = self.create_network(self.net_info, width, height, channels)
+
         #print(self.models)
         for name,model in self.models.items():
             name = name.split('.')[0]
