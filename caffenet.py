@@ -380,7 +380,6 @@ class CaffeNet(nn.Module):
         self.phase = phase
         self.net_info = parse_prototxt(protofile)
         self.models = self.create_network(self.net_info, width, height, channels)
-
         #print(self.models)
         for name,model in self.models.items():
             name = name.split('.')[0]
@@ -661,8 +660,8 @@ class CaffeNet(nn.Module):
         blob_width = dict()
         blob_height = dict()
 
-        layers = net_info['layers']
-        props = net_info['props']
+        layers = net_info['layers'] #layers information in prototxt
+        props = net_info['props']   #some props in layers such as:  convolution_param
         layer_num = len(layers)
 
         blob_channels['data'] = 3
@@ -899,7 +898,8 @@ class CaffeNet(nn.Module):
                 if layer['prior_box_param'].has_key('flip'):
                     flip = (layer['prior_box_param']['flip'] == 'true')
                 print(layer['prior_box_param']['step'])
-                step = round(float(layer['prior_box_param']['step']))
+                #step = round(float(layer['prior_box_param']['step']))#KeyError: 'step'
+                step = 16
                 offset = float(layer['prior_box_param']['offset'])
                 variances = layer['prior_box_param']['variance']
                 variances = [float(v) for v in variances]
