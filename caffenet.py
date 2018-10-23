@@ -897,7 +897,7 @@ class CaffeNet(nn.Module):
                 flip = False
                 if layer['prior_box_param'].has_key('flip'):
                     flip = (layer['prior_box_param']['flip'] == 'true')
-                print(layer['prior_box_param']['step'])
+                #print(layer['prior_box_param']['step'])
                 #step = round(float(layer['prior_box_param']['step']))#KeyError: 'step'
                 step = round(800./ float(blob_width[bname[0]]))
                 print(bname[0] + '800/%d,%d= %d',blob_width[bname[0]],blob_height[bname[0]],step)
