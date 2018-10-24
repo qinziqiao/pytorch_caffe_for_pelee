@@ -481,6 +481,7 @@ class CaffeNet(nn.Module):
         i = 0
         self.output_loss = None
         while i < layer_num:
+            print(str(i)+ layers[i]['name'])
             layer = layers[i]
             lname = layer['name']
             if layer.has_key('include') and layer['include'].has_key('phase'):
