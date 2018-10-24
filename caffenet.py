@@ -900,7 +900,7 @@ class CaffeNet(nn.Module):
                 #print(layer['prior_box_param']['step'])
                 #step = round(float(layer['prior_box_param']['step']))#KeyError: 'step'
                 step = round(800./ float(blob_width[bname[0]]))
-                print(bname[0] + '800/%d,%d= %d',blob_width[bname[0]],blob_height[bname[0]],step)
+                print(bname[0] + '800/%d,%d= %d' % (blob_width[bname[0]],blob_height[bname[0]],step))
                 offset = float(layer['prior_box_param']['offset'])
                 variances = layer['prior_box_param']['variance']
                 variances = [float(v) for v in variances]
