@@ -91,7 +91,7 @@ if args.lr != None:
 net = CaffeNet(protofile)
 if args.weights:
     net.load_weights(args.weights)
-net.set_verbose(False)
+#net.set_verbose(False)
 net.set_train_outputs('mbox_loss')
 
 if args.gpu:
