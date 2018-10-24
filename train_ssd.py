@@ -36,8 +36,8 @@ class ParallelCaffeNet(nn.Module):
         label_data = self.convert2batch(label.data, data.size(0), len(self.device_ids))
         label = Variable(label_data)
         self.module.module.set_forward_net_only(True)
-        print(data)
-        print(label)
+        print(data.size())
+        print(label.size())
         return self.module(data.cuda(), torch.t(label.cuda()))
 
 def adjust_learning_rate(optimizer, batch):
