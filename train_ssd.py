@@ -91,6 +91,11 @@ if args.lr != None:
 net = CaffeNet(protofile)
 if args.weights:
     net.load_weights(args.weights)
+#Save the model
+torch.save(net, './model/COCO_SSD/model.pkl')
+torch.save(net.state_dict(), './model/COCO_SSD/params.pkl')
+exit()
+
 #net.set_verbose(False)
 net.set_train_outputs('mbox_loss')
 
